@@ -1,0 +1,28 @@
+name = "nano"
+version = "8.7"
+release = 1
+
+description = "GNU Nano text editor"
+homepage = "https://www.nano-editor.org"
+license = "GPL-3.0-or-later"
+
+source = "https://www.nano-editor.org/dist/v8/nano-8.7.tar.xz"
+sha256 = "..."
+
+architectures = ["x86_64"]
+
+depends = [
+    "ncurses"
+]
+
+build_depends = [
+    "gcc",
+    "make"
+]
+
+[build]
+system = "autotools"
+
+configure = [
+    "--prefix=/usr"
+]
