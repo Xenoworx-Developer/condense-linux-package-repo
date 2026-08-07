@@ -1,0 +1,28 @@
+name = "curl"
+version = "8.21.0"
+release = 1
+description = "Command line tool and library for transferring data with URLs"
+homepage = "https://curl.se"
+license = "curl"
+source = "https://github.com/curl/curl/releases/download/curl-8_21_0/curl-8.21.0.tar.xz"
+sha256 = "aa1b66a70eace83dc624508745646c08ae561de512ab403adffb93ac87fc72e6"
+architectures = ["x86_64"]
+
+depends = [
+    "openssl",
+    "zlib"
+]
+
+build_depends = [
+    "gcc",
+    "make",
+    "pkgconf"
+]
+
+[build]
+system = "autotools"
+configure = [
+    "--prefix=/usr",
+    "--with-openssl",
+    "--with-zlib"
+]
