@@ -1,0 +1,22 @@
+name = "zlib"
+version = "1.3.2"
+release = 1
+description = "Compression library implementing the DEFLATE algorithm"
+homepage = "https://zlib.net"
+license = "Zlib"
+source = "https://zlib.net/zlib-1.3.2.tar.xz"
+sha256 = "d7a0654783a4da529d1bb793b7ad9c3318020af77667bcae35f95d0e42a792f3"
+architectures = ["x86_64"]
+
+depends = []
+
+build_depends = [
+    "gcc",
+    "make"
+]
+
+[build]
+system = "configure"
+configure = [
+    "--prefix=/usr"
+]
