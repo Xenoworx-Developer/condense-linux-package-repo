@@ -1,0 +1,26 @@
+name = "openssl"
+version = "4.0.1"
+release = 1
+description = "TLS/SSL cryptography and secure communications library"
+homepage = "https://www.openssl.org"
+license = "Apache-2.0"
+source = "https://github.com/openssl/openssl/releases/download/openssl-4.0.1/openssl-4.0.1.tar.gz"
+sha256 = "2db3f3a0d6ea4b59e1f094ace2c8cd536dffb87cdc39084c5afa1e6f7f37dd09"
+architectures = ["x86_64"]
+
+depends = []
+
+build_depends = [
+    "gcc",
+    "make",
+    "perl"
+]
+
+[build]
+system = "autotools"
+configure = [
+    "--prefix=/usr",
+    "--openssldir=/etc/ssl",
+    "shared",
+    "zlib"
+]
