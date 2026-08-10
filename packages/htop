@@ -1,0 +1,21 @@
+name = "htop"
+version = "3.5.2"
+release = 1
+description = "Interactive process viewer and system monitor"
+homepage = "https://htop.dev"
+license = "GPL-2.0-or-later"
+source = "https://github.com/htop-dev/htop/releases/download/3.5.2/htop-3.5.2.tar.xz"
+sha256 = "225128e697c4a8c8a878fd0078c965ff8bd5fb24913bfc8473b8edbd50f843f8"
+architectures = ["x86_64"]
+depends = [
+    "ncurses"
+]
+build_depends = [
+    "gcc",
+    "make"
+]
+[build]
+system = "autotools"
+configure = [
+    "--prefix=/usr"
+]
