@@ -1,0 +1,24 @@
+name = "git"
+version = "2.54.0"
+release = 1
+description = "Distributed version control system"
+homepage = "https://git-scm.com"
+license = "GPL-2.0-or-later"
+source = "https://www.kernel.org/pub/software/scm/git/git-2.54.0.tar.xz"
+sha256 = "f689162364c10de79ef89aa8dbf48731eb057e34edbbd20aca510ce0154681a3"
+architectures = ["x86_64"]
+depends = [
+    "curl",
+    "zlib",
+    "openssl"
+]
+build_depends = [
+    "gcc",
+    "make",
+    "perl"
+]
+[build]
+system = "autotools"
+configure = [
+    "--prefix=/usr"
+]
