@@ -7,20 +7,32 @@ license = "Apache-2.0"
 source = "https://github.com/openssl/openssl/releases/download/openssl-4.0.1/openssl-4.0.1.tar.gz"
 sha256 = "2db3f3a0d6ea4b59e1f094ace2c8cd536dffb87cdc39084c5afa1e6f7f37dd09"
 architectures = ["x86_64"]
-
 depends = []
-
 build_depends = [
     "gcc",
     "make",
     "perl"
 ]
-
 [build]
-system = "autotools"
+system = "custom"
+
+[build.custom]
+# OpenSSL doesn't use autotools - `./config` is its own platform-detecting
+# shell wrapper that picks a target and hands off to the Perl `Configure`
+# script (`./Configure` directly also works, but requires naming the
+# target explicitly, e.g. `linux-x86_64`, so `./config` is the more
+# portable choice here).
 configure = [
-    "--prefix=/usr",
-    "--openssldir=/etc/ssl",
-    "shared",
-    "zlib"
+    "./config --prefix=/usr --openssldir=/etc/ssl shared zlib"
+]
+build = [
+    "make"
+]
+# `install_sw` (rather than plain `install`) skips installing docs/man
+# pages into the staging tree - just the library, headers, and binaries.
+# DESTDIR is already set in the environment for this step by raindrop
+# (see engines/custom.rs), and OpenSSL's own Makefile honors it the same
+# way `make install DESTDIR=...` does for autotools projects.
+install = [
+    "make install_sw"
 ]
