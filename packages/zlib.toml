@@ -16,7 +16,7 @@ build_depends = [
 ]
 
 [build]
-system = "configure"
+system = "autotools"
 configure = [
     "--prefix=/usr"
 ]
