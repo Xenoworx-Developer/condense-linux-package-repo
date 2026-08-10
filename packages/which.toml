@@ -1,0 +1,19 @@
+name = "which"
+version = "2.25"
+release = 1
+description = "Shows the full path of commands, by searching PATH"
+homepage = "https://www.gnu.org/software/which/"
+license = "GPL-3.0-or-later"
+source = "https://ftp.gnu.org/gnu/which/which-2.25.tar.gz"
+sha256 = "1cb83e4f702e60b8211ab5ec4c2afbab1b1dec80209456a7d2faf7584ed225ea"
+architectures = ["x86_64"]
+depends = []
+build_depends = [
+    "gcc",
+    "make"
+]
+[build]
+system = "autotools"
+configure = [
+    "--prefix=/usr"
+]
