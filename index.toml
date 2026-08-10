@@ -1,4 +1,1 @@
-packages = [
-    "nano",
-    "ncurses"
-]
+packages = ["nano", "ncurses", "curl", "openssl", "zlib"]
